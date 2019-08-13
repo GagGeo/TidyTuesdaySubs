@@ -81,27 +81,3 @@ p3 <- emperors %>% select(rise, cause) %>%
 p.all <- arrangeGrob(p1, p2, p3, ncol = 3)
 
 ggsave(filename = "emperors.png", plot = p.all, width = 20, height = 10)
-
-# emperors %>% select(rise, cause) %>%
-#   group_by(rise) %>% count(cause) %>%
-#   ggplot(aes(x = rise, y = n, fill = cause)) +
-#   geom_bar(stat = "identity", position = "dodge") +
-#   theme_minimal() + coord_flip()
-
-# emperors %>% ggplot() +
-#   geom_jitter(aes(x = reign_duration, y = cause, col = cause, size=5, alpha = 0.25)) +
-#   scale_x_continuous(limits=c(0,31))+
-#   geom_segment(aes(y = cause, yend = cause, x = reign_mean_cause, xend = reign_mean), size = 0.5) +
-#   geom_point(aes(x = reign_mean_cause, y = cause, fill = cause), color="gray30", shape=21, size=7, stroke=1) + 
-#   geom_vline(xintercept = emperors$reign_mean) +
-#   theme_minimal() + guides(color = FALSE, fill = FALSE, size = FALSE, alpha = FALSE)+
-#   theme(title=element_text(face="bold"),
-#         plot.subtitle=element_text(face="italic"),
-#         plot.caption = element_text(face = "italic")) +
-#   labs(
-#     title="Reign Duration by Causes of Death",
-#     subtitle="Roman Emperors",
-#     x= "Reign Duration (Years)",
-#     y= "Causes of Death",
-#     caption = "TidyTuesday Week 33, Source = Wikipedia Zonination")
-
